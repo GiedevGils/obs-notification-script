@@ -1,7 +1,7 @@
 # OBS Replay Buffer Notification Script
 
 This script uses the [OBS Scripting hooks](https://obsproject.com/wiki/Getting-Started-With-OBS-Scripting), in combination with [notify-py](https://github.com/ms7m/notify-py), to create a desktop notification when you save a replay buffer. In theory this should work on all platforms, but it has only been tested in Windows 10, and also WSL. 
-
+The notify-py repository has been downloaded and bundled with this repository, to make installation easier (people won't have to uses `pip install notifypy`)
 
 
 This script does not change any video or streaming settings. It only adds a notification when saving the Replay Buffer.

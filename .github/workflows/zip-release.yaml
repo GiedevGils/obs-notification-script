@@ -6,7 +6,16 @@ jobs:
   zip-files:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: GiedevGils/obs-notification-script
+          path: ./
+      - name: Checkout notify-py repo
+        uses: actions/checkout@v2
+        with: 
+          repository: ms7m/notify-py
+          path: ./notify-py
       - name: Upload release zip file
         uses: actions/upload-artifact@v2
         with:
@@ -15,3 +24,4 @@ jobs:
             replay-buffer-with-notification.py
             ./assets
             README.md
+            ./notify-py
