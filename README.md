@@ -1,1 +1,2 @@
-# obs-notification-script
+# OBS Replay Buffer Notification Script
+
