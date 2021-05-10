@@ -11,3 +11,8 @@ jobs:
         with:
           files: assets/ replay-buffer-with-notification.py
           dest: replay-buffer-notification.zip
+      - name: Archive test artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: replay-buffer-notification.zip
+          path: replay-buffer-notification.zip
