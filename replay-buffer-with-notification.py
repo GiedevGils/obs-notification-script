@@ -7,6 +7,14 @@ print("Replay Buffer With Notification initialized")
 def send_notification(content):
   notification = Notify()
   notification.title = "OBS Script - Replay Buffer Save"
+
+  # During personal testing, the icon could not be located in WSL mode
+  # So if the file is located on a WSL path, do not add the image
+  # The standard image is a python icon
+  if "wsl" not in script_path():
+    icon_location = script_path() + "assets/obs.png"
+    notification.icon = icon_location
+    
   notification.message = content
   notification.send()
 
@@ -27,10 +35,9 @@ def save_buffer(pressed):
     else:
       # When the replay buffer is active, and the button is pressed down
       # Save the replay buffer, and then send a notification that it has been saved
-      print('Sending notification...')
       obs.obs_frontend_replay_buffer_save()
       send_notification('Replay buffer saved')
-      print('Notification sent.')
+      print('Replay buffer saved')
 
 # Register the hotkey on script load
 def script_load(settings):
