@@ -22,7 +22,9 @@ def send_notification(content):
 # Description displayed in the Scripts dialog window
 def script_description():
     return """Replay Buffer Save
-    This saves the replay buffer with a notification"""
+    This script saves the replay buffer with a notification.
+    An extra keybind will have been added in the Keybinds tab of the OBS settings.
+    For more information, see: https://github.com/GiedevGils/obs-notification-script"""
 
 # Listen for the callback when the registered hotkey is pressed
 def save_buffer(pressed):
@@ -42,7 +44,7 @@ def save_buffer(pressed):
 # Register the hotkey on script load
 def script_load(settings):
   global hotkey_id
-  hotkey_id = obs.obs_hotkey_register_frontend(script_path(), "Replay Buffer With Notification", save_buffer)
+  hotkey_id = obs.obs_hotkey_register_frontend(script_path(), "Save Replay with notification", save_buffer)
   hotkey_save_array = obs.obs_data_get_array(settings, "notification_hotkey")
   obs.obs_hotkey_load(hotkey_id, hotkey_save_array)
   obs.obs_data_array_release(hotkey_save_array)

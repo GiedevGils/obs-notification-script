@@ -14,3 +14,4 @@ jobs:
           path: |
             replay-buffer-with-notification.py
             ./assets
+            README.md
